@@ -1,0 +1,53 @@
+<div data-ng-controller="HeaderController">
+    <div class="navbar-header">
+        <button class="navbar-toggle" type="button" data-ng-click="isCollapsed = !isCollapsed">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a data-ui-sref="home" class="navbar-brand" data-ui-sref-active="active">Sapience</a>
+    </div>
+    <nav class="collapse navbar-collapse" data-collapse="isCollapsed" data-role="navigation">
+        <ul class="navbar-nav nav" data-ng-if="isLoggedIn()">
+            
+        </ul>
+        <ul class="navbar-nav nav pull-right" data-ng-if="!isLoggedIn()">
+            <li>
+                <div class="social-login">
+                    <a class="btn btn-social btn-linkedin" href="/auth/linkedin">
+                        <i class="fa fa-linkedin"></i>
+                        Linkedin
+                    </a>
+                </div>
+            </li>
+            <li>
+                <a data-ui-sref="login">
+                    <i class="fa fa-sign-in fa-lg"></i>
+                    Login
+                </a>
+            </li>
+        </ul>
+        <ul class="navbar-nav nav pull-right" data-ng-if="isLoggedIn()">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    {{getUser().email}} <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a data-ui-sref="profile">
+                            <i class="fa fa-user fa-lg"></i>
+                            Profile
+                        </a>
+                    </li>
+                    <li>
+                        <a data-ui-sref="logout">
+                            <i class="fa fa-sign-out fa-lg"></i>
+                            Logout
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</div>

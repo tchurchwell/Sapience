@@ -1,0 +1,42 @@
+<div class="form-group">
+    <label class="col-sm-6" for="firstName">First Name</label>
+    <label class="col-sm-6" for="lastName">Last Name</label>
+
+    <div class="col-sm-6" data-ng-class="{ 'has-error' : form.firstName.$invalid && !form.firstName.$pristine }">
+        <input id="firstName" class="form-control" type="text" name="firstName" placeholder="First Name" data-ng-model="$parent.user.firstName" required/>
+
+        <p data-ng-show="form.firstName.$invalid && !form.firstName.$pristine" class="help-block">First Name is required</p>
+    </div>
+    <div class="col-sm-6" data-ng-class="{ 'has-error' : form.lastName.$invalid && !form.lastName.$pristine }">
+        <input id="lastName" class="form-control" type="text" name="lastName" placeholder="Last Name" data-ng-model="$parent.user.lastName" required/>
+
+        <p data-ng-show="form.lastName.$invalid && !form.lastName.$pristine" class="help-block">Last Name is required</p>
+    </div>
+</div>
+<div class="form-group" data-ng-class="{ 'has-error' : form.email.$invalid && !form.email.$pristine }">
+    <label class="col-sm-12" for="email">Email</label>
+
+    <div class="col-sm-12">
+        <input id="email" class="form-control" type="email" name="email" placeholder="Email" data-ng-model="$parent.user.email" required/>
+
+        <p data-ng-show="form.email.$invalid && !form.email.$pristine" class="help-block">Valid email is required</p>
+    </div>
+</div>
+<div class="form-group" data-ng-class="{ 'has-error' : form.password.$invalid && !form.password.$pristine }">
+    <label class="col-sm-12" for="password">Password</label>
+
+    <div class="col-sm-12">
+        <input id="password" class="form-control" type="password" name="password" placeholder="Password" data-ng-model="$parent.user.password" required/>
+
+        <p data-ng-show="form.password.$invalid && !form.password.$pristine" class="help-block">Password is required</p>
+    </div>
+</div>
+<div class="form-group" data-ng-class="{ 'has-error' : form.confirmPassword.$invalid && !form.confirmPassword.$pristine }">
+    <label class="col-sm-12" for="confirmPassword">Confirm Password</label>
+
+    <div class="col-sm-12">
+        <input id="confirmPassword" class="form-control" type="password" name="confirmPassword" placeholder="Confirm Password" data-ng-model="$parent.user.confirmPassword" required/>
+
+        <p data-ng-show="form.confirmPassword.$invalid && !form.confirmPassword.$pristine" class="help-block">Confirm password is required</p>
+    </div>
+</div>

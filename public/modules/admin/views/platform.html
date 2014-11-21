@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" data-ng-app="Admin">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <title>Platform</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <meta name="keywords" content="artifact-graph, Cengage, registry-services">
+    <meta name="description" content="Cengage registry services">
+
+    <link href="/img/favicon.ico" rel="shortcut icon" type="image/x-icon">
+
+    <link rel="stylesheet" href="../../../../lib/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="../../../../lib/font-awesome/font-awesome.css">
+    <link rel="stylesheet" href="../../../../lib/bootstrap-social/bootstrap-social.css">
+    <link rel="stylesheet" href="css/common.css">
+
+    <script type="text/javascript" src="../../../../lib/angular/angular.js"></script>
+    <script type="text/javascript" src="../adminController.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+    <header class="navbar navbar-inverse navbar-static-top">
+        <div class="container">
+            <a href="" class="navbar-brand">Sapience</a>
+            <nav class="collapse navbar-collapse">
+                <ul class="navbar-nav nav">
+                    <li><a href="">Dashboard</a>
+                    </li>
+                    <li class="active"><a href="">Admin</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div data-ng-controller="adminController" class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="col-sm-10">
+                    <ul class="nav nav-pills nav-stacked">
+                        <li class="active"><a href="">Platform</a>
+                        </li>
+                        <li><a href="">Products</a>
+                        </li>
+                        <li><a href="">Metrics</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- <div class="col-sm-1"></div> -->
+
+            <div class="col-sm-9">
+
+                <fieldset>
+                    <legend>Add a Platform</legend>
+                    <form class="form-inline col-sm-12" role="form">
+                        <div class="form-group">
+                            <label class="sr-only" for="platformName">Name</label>
+                            <input type="text" placeholder="Enter platform name" class="form-control" id="platformName">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="primaryQA">Primary QA</label>
+                            <input type="text" placeholder="Enter primary QA" class="form-control" id="primaryQA">
+                        </div>
+                        <button class="btn btn-default" type="button">Submit</button>
+                    </form>
+                </fieldset>
+                <div>
+                    <p></p>
+                </div>
+
+                <fieldset class="adminField">
+                    <legend>Existing Platforms</legend>
+                    <div class="col-sm-6">
+                        <div class="input-group">
+                            <input type="text" placeholder="Search by platform name" class="form-control">
+                            <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">Search</button>
+                        </span>
+                        </div>
+                        <!-- /input-group -->
+                    </div>
+
+                    <div class="col-sm-12">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Primary QA</th>
+                                    <th>Edit</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Legacy</td>
+                                    <td>John Doe</td>
+                                    <td><a href=""><i class="fa fa-times" title="delete"></i></a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>MindTap</td>
+                                    <td>Jan Doe</td>
+                                    <td><a href=""><i class="fa fa-times"></i></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </fieldset>
+
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

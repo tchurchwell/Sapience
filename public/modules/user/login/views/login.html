@@ -1,0 +1,48 @@
+<div data-ng-controller="LoginController" class="col-sm-offset-3 col-sm-6">
+    <div class="text-center">
+        <h4>Please Log In with</h4>
+        <ng-include src="'/modules/user/views/auth.html'"></ng-include>
+    </div>
+    <div class="separator">
+        <hr class="separator" />
+        <span class="separator">or</span>
+    </div>
+    <form name="loginForm" data-ng-submit="login()" class="form-horizontal" novalidate>
+        <div class="form-group" data-ng-class="{ 'has-error' : loginForm.email.$invalid && !loginForm.email.$pristine }">
+            <label class="col-sm-12" for="email">Email</label>
+
+            <div class="col-sm-12">
+                <input id="email" class="form-control" type="text" name="email" placeholder="Email" data-ng-model="user.email" required/>
+
+                <p data-ng-show="loginForm.email.$invalid && !loginForm.email.$pristine" class="help-block">Valid email is required</p>
+            </div>
+        </div>
+        <div class="form-group" data-ng-class="{ 'has-error' : loginForm.password.$invalid && !loginForm.password.$pristine }">
+            <label class="col-sm-12" for="password">Password</label>
+
+            <div class="col-sm-12">
+                <input id="password" class="form-control" type="password" name="password" placeholder="Password" data-ng-model="user.password" required/>
+
+                <p data-ng-show="loginForm.password.$invalid && !loginForm.password.$pristine" class="help-block">Password cannot be blank</p>
+            </div>
+        </div>
+        <div class="form-group hide">
+            <div class="col-sm-12">
+                <input type="checkbox" name="rememberMe" id="rememberMe" />
+                <label for="rememberMe" class="rememberMe">Remember me</label>
+                <a data-ui-sref="resetPassword" class="find-password pull-right">Forgot password?</a>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-12">
+                <button type="submit" class="btn btn-primary" data-ng-disabled="loginForm.$invalid">
+                    <i class="fa fa-sign-in"></i>
+                    Login
+                </button>
+                <span>or</span>
+                <a class="btn btn-default" data-ui-sref="register">Register</a>
+            </div>
+        </div>
+    </form>
+</div>

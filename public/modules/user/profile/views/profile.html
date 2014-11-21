@@ -1,0 +1,15 @@
+<div data-ng-controller="ProfileController">
+    <h4 class="text-center">User Profile</h4>
+    <form name="form" data-ng-submit="update()" class="form-horizontal" novalidate>
+        <ng-include src="'/modules/user/profile/views/userInfo.html'"></ng-include>
+        <div class="form-group">
+            <div class="col-sm-12">
+                <button class="btn btn-primary" type="submit" data-ng-disabled="form.$invalid">
+                    <i class="fa fa-save"></i>
+                    Update
+                </button>
+                <button class="btn btn-link" type="button">Cancel</button>
+            </div>
+        </div>
+    </form>
+</div>
