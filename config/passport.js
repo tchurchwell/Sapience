@@ -184,8 +184,8 @@ module.exports = function(passport) {
                 'linkedin.id': profile.id
             }, function(err, foundUser) {
                 if (!foundUser) {
-                	console.log('checking');
-                	console.dir(profile);
+                    console.log('checking');
+                    console.dir(profile);
                     User.save({
                         firstName: profile._json.firstName,
                         lastName: profile._json.lastName,
