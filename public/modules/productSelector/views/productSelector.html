@@ -1,0 +1,121 @@
+<section data-ng-controller="ProductSelectorController" class="nav nav-sidebar">
+
+    <accordion close-others="true">
+<!-- 	       <accordion-group is-open="true" is-disabled="status.isFirstDisabled">
+            <accordion-heading>
+                <b>Platforms / Products</b>
+            </accordion-heading>
+            <div>
+                <table class="table">
+                    <tr data-ng-repeat="platform in platforms | orderBy : 'name'">
+                        <td> <span class="text-primary"></span>
+                            <a>
+                                <div data-ng-click="fetchProducts(platform);isCollapsed2= !isCollapsed2" class="glyphicon glyphicon-chevron-right" data-toggle="class"> <b>{{platform.name}}</b>
+                                </div>
+                            </a>
+                            <div id="isCollapsed2" collapse="!isCollapsed2" data-ng-repeat="product in filteredPrroducts | orderBy : 'name'">
+                                <ul>
+
+                                    <a>
+                                        <div data-ng-click="isCollapsed3= !isCollapsed3" class="glyphicon glyphicon-chevron-right" data-toggle="class"><b>  {{product.name}}</b>
+                                        </div>
+                                    </a>
+                                    <div id="isCollapsed3" collapse="!isCollapsed3">
+
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="checkbox">
+                                                    <span>
+
+											        <label class="checkbox-inline"><input type="checkbox" data-ng-click="productSelected(product,actualDataModel)" ng-model="actualDataModel"> Actual</label>
+
+											      </span>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="checkbox">
+                                                    <span>
+
+											        <label class="checkbox-inline"><input type="checkbox" data-ng-click="expectedProductSelected(product,expectedDataModel)" ng-model="expectedDataModel"> Expected</label>
+
+											      </span>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+
+
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </accordion-group> -->
+        <accordion-group is-open="true" is-disabled="status.isFirstDisabled">
+            <accordion-heading>
+                <b>Team Practices and Surveys</b>
+            </accordion-heading>
+            <div>
+                <table>
+                    <tr data-ng-repeat="practice in practices">
+                        <td> <span class="text-primary"></span>
+                            <a>
+                                <div class="glyphicon glyphicon-chevron-right" data-ng-click="practiceSelected(practice.id)" data-toggle="class">{{practice.name}}</div>
+
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                <!-- checking it -->
+                <div id="isCollapsed22" data-ng-repeat="limeSurveyTitleResult in limeSurveyTitleResults | orderBy : 'name'">
+                                <ul>
+                                    <a>
+                                         <div class="glyphicon glyphicon-chevron-right" data-ng-click="selectSurvey(limeSurveyTitleResult.sid)" data-toggle="class">  {{limeSurveyTitleResult.surveyls_title}}
+                                         
+                                        </div>
+                                    </a>
+                                </ul>
+                 </div>
+                 
+                 <!-- <div id="isCollapsed22" data-ng-repeat="limeSurveyTitleResult1 in limeSurveyTitleResults1 | orderBy : 'name'">
+                                <ul>
+                                    <a>
+                                        <div class="glyphicon glyphicon-chevron-right" data-toggle="class">  {{limeSurveyTitleResult1}}
+                                        </div>
+                                        <div class="glyphicon glyphicon-chevron-right" data-toggle="class">  {{checkingData}}
+                                        </div>
+                                    </a>
+                                </ul>
+                 </div> -->
+
+                <!-- checking finish -->
+
+
+                <!-- <div>{{limeSurveyTitleResults[0].surveyls_title}}</div> -->
+                 <div ng-bind-html="cfdump">
+        <!-- To be populated with the CFDump from the server. -->
+    </div>
+            </div>
+        </accordion-group>
+        <!-- <accordion-group>
+            <accordion-heading>
+                <b>People</b>
+            </accordion-heading>
+            People content here
+            <accordion-group>
+                <accordion-heading>
+                    <b>inside it</b>
+                </accordion-heading>
+                <accordion-group>
+                    child form
+                </accordion-group>
+            </accordion-group>
+        </accordion-group> -->
+    </accordion>
+
+    <br/>
+</section>

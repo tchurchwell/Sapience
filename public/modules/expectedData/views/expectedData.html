@@ -1,0 +1,74 @@
+<div data-ng-controller="expectedDataController">
+
+
+    <div class="row" class="mainbox col-md-6 col-md-offset-3 col-sm-12 col-sm-offset-2">
+
+        <form id="expectedDataFormId" name="expectedDataForm" class="form-horizontal" role="form" ng-submit="submitExpectedData(expectedDataFormModel)">
+            <div class="btn-toolbar">
+                <!--Default buttons with dropdown menu-->
+                <div class="btn-group">
+
+                    <button class="btn btn-default" id="select_platform">Select Platform</button>
+                    <button data-toggle="dropdown" class="btn btn-default dropdown-toggle"><span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li data-ng-repeat="platform in platforms | orderBy : 'name'">
+                            <a data-ng-click="fetchProducts(platform);" value="{{platform.id}}"><b>{{platform.name}}</b>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <!--Primary buttons with dropdown menu-->
+                <div class="btn-group">
+                    <button class="btn btn-default" id="select_product">Select Product</button>
+                    <button data-toggle="dropdown" class="btn btn-default dropdown-toggle"><span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li data-ng-repeat="product in filteredProducts | orderBy : 'name'">
+                            <a>
+                                <div data-ng-click="saveSelectedProducts(product);" ng-model="expectedDataFormModel.selectedProduct" value="{{product.id}}"><b>{{product.name}}</b>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <!--Info buttons with dropdown menu-->
+                <div class="btn-group">
+                    <button class="btn btn-default" id="select_connector">Select Connector</button>
+                    <button data-toggle="dropdown" class="btn btn-default dropdown-toggle"><span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li data-ng-repeat="connector in connectors | orderBy : 'name'">
+                            <a>
+                                <div data-ng-click="fetchCategories(connector);" value="{{connector.id}}"><b>{{connector.name}}</b>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!--Success buttons with dropdown menu-->
+                <div class="btn-group">
+                    <button class="btn btn-default" id="select_category">Select Category</button>
+                    <button data-toggle="dropdown" class="btn btn-default dropdown-toggle"><span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li data-ng-repeat="category in filteredCategories">
+                            <a>
+                                <div data-ng-click="saveSelectedCategory(category);" value="{{category.id}}"><b>{{category.name}}</b>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <input type="text" class="input-medium" name="text" ng-model="expectedDataFormModel.selectedExpectedValue" style="margin: 4px; margin-left: 5px; float: left;" placeholder="Expected Value">
+                <textarea rows="2" cols="15" ng-model="expectedDataFormModel.selectedExpression" placeholder="Enter Expression Here"></textarea>
+                <button type="submit" style="margin-bottom:45px;" class="btn btn-success">Submit</button>
+
+            </div>
+        </form>
+    </div>
+</div>

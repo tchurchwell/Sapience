@@ -1,0 +1,37 @@
+<div data-ng-controller="ProductListController">
+    <div class="dropdown">
+        <button class="btn dropdown-toggle sr-only" type="button" id="dropdownMenu1" data-toggle="dropdown">
+            Dropdown</span>
+        </button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a>
+            </li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a>
+            </li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a>
+            </li>
+            <li role="presentation" class="divider"></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="table-responsive" data-ng-show="products.length > 0">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <!--<th></th>-->
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-ng-repeat="product in products" data-ng-mouseenter="product.showDelete = true" data-ng-mouseleave="product.showDelete = false">
+                    <td>{{$index + 1}}</td>
+                    <td>{{product.name}}</td>
+                    <!--<td><button data-ng-class="{invisible:!product.showDelete}" type="button" class="invisible btn btn-link btn-xs" data-ng-click="delete(product)"><span class="glyphicon glyphicon-trash"></span></button></td>-->
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

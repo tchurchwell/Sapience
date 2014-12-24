@@ -1,0 +1,33 @@
+<div class="row">
+    <div class="col-sm-3 col-md-3 sidebar bg-info" data-ui-view="sidebar"></div>
+    <div class="col-sm-9 col-md-9 main" data-ng-controller="dashboardController">
+        <div>
+            <div data-ng-repeat="application in cateogories" class="checkbox-inline">
+                <div>
+                    <!--  direct fetch graph by category (FGBC) , when product is already selected then check the category -->
+                    <label>
+                        <input type="checkbox" data-ng-click="applicationSelected(application,'directFGBC')">{{application.value}}
+                    </label>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <!-- for Code Quality -->
+        <div id="section1" ng-show="section1">
+            <div id="spiderChart"></div>
+            <div id="lineChart"></div>
+        </div>
+
+        <!-- for Project Tracking -->
+        <div id="section2" ng-show="section2">
+            <div id="spiderChart2"></div>
+            <div id="lineChart2"></div>
+        </div>
+
+        <!-- for Defect Metrics -->
+        <div id="section3" ng-show="section3">
+            <div id="spiderChart3"></div>
+            <div id="lineChart3"></div>
+        </div>
+    </div>
+</div>

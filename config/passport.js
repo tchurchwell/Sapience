@@ -177,15 +177,15 @@ module.exports = function(passport) {
             consumerKey: config.linkedin.clientID,
             consumerSecret: config.linkedin.clientSecret,
             callbackURL: config.linkedin.callbackURL,
-            profileFields: ['id', 'first-name', 'last-name', 'email-address', 'skills']
+            profileFields: ['id', 'first-name', 'last-name', 'email-address', 'skills', 'location']
         },
         function(accessToken, refreshToken, profile, done) {
             User.findOne({
                 'linkedin.id': profile.id
             }, function(err, foundUser) {
                 if (!foundUser) {
-                    console.log('checking');
-                    console.dir(profile);
+                	console.log('checking');
+                	console.dir(profile);
                     User.save({
                         firstName: profile._json.firstName,
                         lastName: profile._json.lastName,

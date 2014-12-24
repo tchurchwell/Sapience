@@ -10,19 +10,23 @@
     </div>
     <nav class="collapse navbar-collapse" data-collapse="isCollapsed" data-role="navigation">
         <ul class="navbar-nav nav" data-ng-if="isLoggedIn()">
-
+            <li data-ng-repeat="item in menu" data-ui-sref-active="active">
+                <a data-ui-sref="{{item.state}}">{{item.title}}</a>
+            </li>
         </ul>
         <ul class="navbar-nav nav pull-right" data-ng-if="!isLoggedIn()">
             <li>
                 <div class="social-login">
                     <a class="btn btn-social btn-linkedin" href="/auth/linkedin">
-                        <i class="fa fa-linkedin"></i> Linkedin
+                        <i class="fa fa-linkedin"></i>
+                        Linkedin
                     </a>
                 </div>
             </li>
             <li>
                 <a data-ui-sref="login">
-                    <i class="fa fa-sign-in fa-lg"></i> Login
+                    <i class="fa fa-sign-in fa-lg"></i>
+                    Login
                 </a>
             </li>
         </ul>
@@ -34,12 +38,14 @@
                 <ul class="dropdown-menu">
                     <li>
                         <a data-ui-sref="profile">
-                            <i class="fa fa-user fa-lg"></i> Profile
+                            <i class="fa fa-user fa-lg"></i>
+                            Profile
                         </a>
                     </li>
                     <li>
                         <a data-ui-sref="logout">
-                            <i class="fa fa-sign-out fa-lg"></i> Logout
+                            <i class="fa fa-sign-out fa-lg"></i>
+                            Logout
                         </a>
                     </li>
                 </ul>
