@@ -1,7 +1,7 @@
 <section data-ng-controller="ProductSelectorController" class="nav nav-sidebar">
 
     <accordion close-others="true">
-<!-- 	       <accordion-group is-open="true" is-disabled="status.isFirstDisabled">
+        <!-- 	       <accordion-group is-open="true" is-disabled="status.isFirstDisabled">
             <accordion-heading>
                 <b>Platforms / Products</b>
             </accordion-heading>
@@ -72,16 +72,16 @@
                 </table>
                 <!-- checking it -->
                 <div id="isCollapsed22" data-ng-repeat="limeSurveyTitleResult in limeSurveyTitleResults | orderBy : 'name'">
-                                <ul>
-                                    <a>
-                                         <div class="glyphicon glyphicon-chevron-right" data-ng-click="selectSurvey(limeSurveyTitleResult.sid)" data-toggle="class">  {{limeSurveyTitleResult.surveyls_title}}
-                                         
-                                        </div>
-                                    </a>
-                                </ul>
-                 </div>
-                 
-                 <!-- <div id="isCollapsed22" data-ng-repeat="limeSurveyTitleResult1 in limeSurveyTitleResults1 | orderBy : 'name'">
+                    <ul>
+                        <a>
+                            <div class="glyphicon glyphicon-chevron-right" data-ng-click="selectSurvey(limeSurveyTitleResult.sid)" data-toggle="class"> {{limeSurveyTitleResult.surveyls_title}}
+
+                            </div>
+                        </a>
+                    </ul>
+                </div>
+
+                <!-- <div id="isCollapsed22" data-ng-repeat="limeSurveyTitleResult1 in limeSurveyTitleResults1 | orderBy : 'name'">
                                 <ul>
                                     <a>
                                         <div class="glyphicon glyphicon-chevron-right" data-toggle="class">  {{limeSurveyTitleResult1}}
@@ -96,9 +96,9 @@
 
 
                 <!-- <div>{{limeSurveyTitleResults[0].surveyls_title}}</div> -->
-                 <div ng-bind-html="cfdump">
-        <!-- To be populated with the CFDump from the server. -->
-    </div>
+                <div ng-bind-html="cfdump">
+                    <!-- To be populated with the CFDump from the server. -->
+                </div>
             </div>
         </accordion-group>
         <!-- <accordion-group>
