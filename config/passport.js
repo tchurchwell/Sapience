@@ -10,19 +10,19 @@ var mongoose = require('mongoose'),
     User = mongoose.model('User'),
     config = require('./config').passport;
 
-module.exports = function(passport) {
+module.exports = function (passport) {
 
     // Serialize the user id to push into the session
-    passport.serializeUser(function(user, done) {
+    passport.serializeUser(function (user, done) {
         done(null, user.id);
     });
 
     // Deserialize the user object based on a pre-serialized token
     // which is the user id
-    passport.deserializeUser(function(id, done) {
+    passport.deserializeUser(function (id, done) {
         User.findOne({
             _id: id
-        }, function(err, user) {
+        }, function (err, user) {
             done(err, user && user.sanitize());
         });
     });
@@ -32,10 +32,10 @@ module.exports = function(passport) {
             usernameField: 'email',
             passwordField: 'password'
         },
-        function(email, password, done) {
+        function (email, password, done) {
             User.findOne({
                 email: email
-            }, function(err, user) {
+            }, function (err, user) {
                 if (err) {
                     return done(err);
                 }
@@ -60,10 +60,10 @@ module.exports = function(passport) {
             consumerSecret: config.twitter.clientSecret,
             callbackURL: config.twitter.callbackURL
         },
-        function(token, tokenSecret, profile, done) {
+        function (token, tokenSecret, profile, done) {
             User.findOne({
                 'twitter.id_str': profile.id
-            }, function(err, user) {
+            }, function (err, user) {
                 if (err) {
                     return done(err);
                 }
@@ -74,7 +74,7 @@ module.exports = function(passport) {
                         provider: 'twitter',
                         twitter: profile._json
                     });
-                    user.save(function(err) {
+                    user.save(function (err) {
                         if (err) console.log(err);
                         return done(err, user);
                     });
@@ -91,10 +91,10 @@ module.exports = function(passport) {
             clientSecret: config.facebook.clientSecret,
             callbackURL: config.facebook.callbackURL
         },
-        function(accessToken, refreshToken, profile, done) {
+        function (accessToken, refreshToken, profile, done) {
             User.findOne({
                 'facebook.id': profile.id
-            }, function(err, foundUser) {
+            }, function (err, foundUser) {
                 if (!foundUser) {
                     User.save({
                         firstName: profile.name.givenName,
@@ -102,9 +102,9 @@ module.exports = function(passport) {
                         email: profile.emails[0].value,
                         provider: 'facebook',
                         facebook: profile._json
-                    }).then(function(newUser) {
+                    }).then(function (newUser) {
                         return done(null, newUser.sanitize());
-                    }).catch(function(err) {
+                    }).catch(function (err) {
                         return done(err);
                     });
                 } else {
@@ -120,10 +120,10 @@ module.exports = function(passport) {
             clientSecret: config.github.clientSecret,
             callbackURL: config.github.callbackURL
         },
-        function(accessToken, refreshToken, profile, done) {
+        function (accessToken, refreshToken, profile, done) {
             User.findOne({
                 'github.id': profile.id
-            }, function(err, user) {
+            }, function (err, user) {
                 if (!user) {
                     user = new User({
                         name: profile.displayName,
@@ -132,7 +132,7 @@ module.exports = function(passport) {
                         provider: 'github',
                         github: profile._json
                     });
-                    user.save(function(err) {
+                    user.save(function (err) {
                         if (err) console.log(err);
                         return done(err, user);
                     });
@@ -149,10 +149,10 @@ module.exports = function(passport) {
             clientSecret: config.google.clientSecret,
             callbackURL: config.google.callbackURL
         },
-        function(accessToken, refreshToken, profile, done) {
+        function (accessToken, refreshToken, profile, done) {
             User.findOne({
                 'google.id': profile.id
-            }, function(err, user) {
+            }, function (err, user) {
                 if (!user) {
                     user = new User({
                         name: profile.displayName,
@@ -161,7 +161,7 @@ module.exports = function(passport) {
                         provider: 'google',
                         google: profile._json
                     });
-                    user.save(function(err) {
+                    user.save(function (err) {
                         if (err) console.log(err);
                         return done(err, user);
                     });
@@ -179,22 +179,22 @@ module.exports = function(passport) {
             callbackURL: config.linkedin.callbackURL,
             profileFields: ['id', 'first-name', 'last-name', 'email-address', 'skills', 'location']
         },
-        function(accessToken, refreshToken, profile, done) {
+        function (accessToken, refreshToken, profile, done) {
             User.findOne({
                 'linkedin.id': profile.id
-            }, function(err, foundUser) {
+            }, function (err, foundUser) {
                 if (!foundUser) {
-                	console.log('checking');
-                	console.dir(profile);
+                    console.log('checking');
+                    console.dir(profile);
                     User.save({
                         firstName: profile._json.firstName,
                         lastName: profile._json.lastName,
                         email: profile._json.emailAddress,
                         provider: 'linkedin',
                         linkedin: profile._json
-                    }).then(function(newUser) {
+                    }).then(function (newUser) {
                         return done(null, newUser.sanitize());
-                    }).catch(function(err) {
+                    }).catch(function (err) {
                         return done(err);
                     });
                 } else {
